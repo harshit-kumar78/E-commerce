@@ -1,0 +1,74 @@
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+.register {
+  margin-left: 31%;
+  margin-top: 3%;
+}
+.inputbox {
+  display: block;
+  padding: 7px;
+  width: 54%;
+  border: 1px solid skyblue;
+  margin: 25px;
+}
+
+.login {
+  margin-left: 31%;
+  margin-top: 3%;
+}
+.signBtn {
+  margin: 25px;
+  width: 13%;
+  padding: 1%;
+  background: skyblue;
+}
+.footer {
+  position: absolute;
+  bottom: 0px;
+  text-align: center;
+  color: white;
+  background: skyblue;
+  width: 100%;
+}
+.nav-ul li {
+  display: inline-block;
+  padding: 10px;
+  margin: 10px;
+}
+.nav-ul {
+  padding: 5px;
+  margin: 0px;
+  background: skyblue;
+}
+
+.nav-ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
