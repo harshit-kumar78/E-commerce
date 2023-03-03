@@ -1,4 +1,9 @@
-//configuration will contain connection to Db properties
 const mongoose = require("mongoose");
-
-mongoose.connect("mongodb://localhost:27017/e-comm");
+mongoose.set("strictQuery", true);
+mongoose
+  .connect("mongodb://localhost:27017/e-comm", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => console.log("DB connected successfully"))
+  .catch((err) => console.log(err));

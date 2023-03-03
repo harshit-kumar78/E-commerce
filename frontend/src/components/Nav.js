@@ -7,41 +7,46 @@ const Nav = () => {
   const navigate = useNavigate();
   const logout = () => {
     localStorage.clear();
-    navigate("/signup");
+    navigate("/login");
   };
   return (
     <div>
-      <ul className=" nav-link nav-ul ">
-        <li>
-          <Link to="/">Products</Link>
-        </li>
-        <li>
-          <Link to="/profile">Profile</Link>
-        </li>
-        <li>
-          <Link to="/add">Add Prodcut</Link>
-        </li>
-        <li>
-          <Link to="/update">Update Product</Link>
-        </li>
+      <img
+        src="https://static.vecteezy.com/system/resources/previews/003/731/316/original/web-icon-line-on-white-background-image-for-web-presentation-logo-icon-symbol-free-vector.jpg"
+        alt="logo-img"
+        className="logo"
+      />
 
-        {auth ? (
+      {auth ? (
+        <ul className=" nav-link nav-ul ">
           <li>
-            <Link to="/signup" onClick={logout}>
-              Logout
+            <Link to="/">Products</Link>
+          </li>
+          <li>
+            <Link to="/profile">Profile</Link>
+          </li>
+          <li>
+            <Link to="/add">Add Prodcut</Link>
+          </li>
+          <li>
+            <Link to="/update">Update Product</Link>
+          </li>
+          <li>
+            <Link to="/login" onClick={logout}>
+              logout({JSON.parse(auth).name})
             </Link>
           </li>
-        ) : (
-          <>
-            <li>
-              <Link to="/signup">Sign Up</Link>
-            </li>
-            <li>
-              <Link to="/login">Login</Link>
-            </li>
-          </>
-        )}
-      </ul>
+        </ul>
+      ) : (
+        <ul className="nav-link nav-ul nav-right">
+          <li>
+            <Link to="/signup">Sign Up</Link>
+          </li>
+          <li>
+            <Link to="/login">Login</Link>
+          </li>
+        </ul>
+      )}
     </div>
   );
 };

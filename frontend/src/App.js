@@ -18,7 +18,6 @@ function App() {
             <Route path="/profile" element={<h1>profile component</h1>} />
             <Route path="/add" element={<h1>add component</h1>} />
             <Route path="/update" element={<h1>update component</h1>} />
-            <Route path="/logout" element={<h1>logot component</h1>} />
           </Route>
           <Route path="/signup" element={<SignUp />} />
           <Route path="/login" element={<Login />} />

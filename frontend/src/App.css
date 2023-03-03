@@ -63,6 +63,16 @@
 .App-link {
   color: #61dafb;
 }
+.nav-right {
+  text-align: right;
+}
+
+.logo {
+  width: 43px;
+  float: left;
+  margin-top: 10px;
+  margin-left: 10px;
+}
 
 @keyframes App-logo-spin {
   from {
