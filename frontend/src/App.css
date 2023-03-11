@@ -3,7 +3,8 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
-.register {
+.register,
+.add {
   margin-left: 31%;
   margin-top: 3%;
 }
@@ -12,18 +13,20 @@
   padding: 7px;
   width: 54%;
   border: 1px solid skyblue;
-  margin: 25px;
+  margin: 7px;
 }
 
 .login {
   margin-left: 31%;
   margin-top: 3%;
 }
-.signBtn {
+.signBtn,
+.addBtn {
   margin: 25px;
   width: 13%;
   padding: 1%;
   background: skyblue;
+  display: block;
 }
 .footer {
   position: absolute;
@@ -73,7 +76,16 @@
   margin-top: 10px;
   margin-left: 10px;
 }
-
+.text-center ul li {
+  display: inline-block;
+  border: 3px solid lightskyblue;
+  padding: 3px;
+  margin: 3px;
+  width: 151px;
+}
+.text-center ul {
+  margin: 0%;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -81,4 +93,8 @@
   to {
     transform: rotate(360deg);
   }
+}
+.invalid-input {
+  margin-left: 25px;
+  color: red;
 }
