@@ -7,17 +7,6 @@ const cors = require("cors");
 const productModel = require("./db/Product");
 
 const app = express();
-
-// const connectDB = async () => {
-//   mongoose.connect("mongodb://localhost:27017/e-comm");
-//   const productSchema = new mongoose.Schema({});
-//   const product = mongoose.model("product", productSchema);
-//   //const data = await product.find({});
-//   console.log(data);
-// };
-
-//connectDB();
-
 app.use(express.json());
 app.use(cors());
 
@@ -41,6 +30,7 @@ app.post("/login", async (req, res) => {
 app.post("/add-product", async (req, res) => {
   let product = new productModel(req.body);
   let new_product = await product.save();
+  console.log(new_product);
   res.send(new_product);
 });
 
