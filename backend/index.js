@@ -5,6 +5,8 @@ require("./db/config");
 const User = require("./db/User");
 const cors = require("cors");
 const productModel = require("./db/Product");
+const mongoose = require("mongoose");
+const { ObjectId } = require("mongodb");
 
 const app = express();
 app.use(express.json());
@@ -41,5 +43,11 @@ app.get("/products", async (req, res) => {
   } else {
     res.send({ result: "no product found" });
   }
+});
+
+app.delete("/product/:id", async (req, res) => {
+  let id = req.params.id;
+  result = await productModel.deleteOne({ _id: new ObjectId(id) });
+  res.send(result);
 });
 app.listen(4000);

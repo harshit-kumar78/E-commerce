@@ -13,6 +13,12 @@ const Product = () => {
     result = await result.json();
     setProducts(result);
   };
+  const deleteProduct = async (id) => {
+    await fetch(`http://localhost:4000/product/${id}`, {
+      method: "delete",
+    });
+    getProducts();
+  };
   return (
     <div className="text-center">
       <h1>Product List</h1>
@@ -21,14 +27,18 @@ const Product = () => {
         <li>NAME</li>
         <li>BRAND</li>
         <li>CATEGORY</li>
+        <li>OPERATION</li>
       </ul>
       {products.map((ele, index) => {
         return (
-          <ul>
+          <ul key={ele._id}>
             <li>{index + 1}</li>
             <li>{ele.name}</li>
             <li>{ele.company}</li>
             <li>{ele.category}</li>
+            <li>
+              <button onClick={() => deleteProduct(ele._id)}>delete</button>
+            </li>
           </ul>
         );
       })}
