@@ -50,4 +50,32 @@ app.delete("/product/:id", async (req, res) => {
   result = await productModel.deleteOne({ _id: new ObjectId(id) });
   res.send(result);
 });
+
+app.get("/product/:id", async (req, res) => {
+  let id = req.params.id;
+  const product = await productModel.findOne({ _id: new ObjectId(id) });
+  if (product) {
+    res.send(product);
+  } else {
+    res.send({ status: "no data found" });
+  }
+});
+
+app.put("/product/:id", async (req, res) => {
+  const result = await productModel.updateOne(
+    { _id: new ObjectId(req.params.id) },
+    {
+      $set: req.body,
+    }
+  );
+  const { modifiedCount, acknowledged, matchedCount } = result;
+
+  if (modifiedCount == 1 && matchedCount) {
+    res.send(result);
+  } else if (modifiedCount == 0 && matchedCount) {
+    res.send({ status: "no data modified" });
+  } else {
+    res.send({ status: "no data found" });
+  }
+});
 app.listen(4000);

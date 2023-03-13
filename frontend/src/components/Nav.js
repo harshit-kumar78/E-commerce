@@ -29,7 +29,7 @@ const Nav = () => {
             <Link to="/add">Add Product</Link>
           </li>
           <li>
-            <Link to="/update">Update Product</Link>
+            <Link to="/update/xxx">Update Product</Link>
           </li>
           <li>
             <Link to="/login" onClick={logout}>
