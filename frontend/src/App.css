@@ -104,3 +104,11 @@
   margin-left: 25px;
   color: red;
 }
+
+.input-search-product {
+  width: 250px;
+  height: 34px;
+  margin: 20px;
+  padding: 19px;
+  font-size: 18px;
+}

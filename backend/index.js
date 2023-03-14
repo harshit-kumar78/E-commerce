@@ -78,4 +78,15 @@ app.put("/product/:id", async (req, res) => {
     res.send({ status: "no data found" });
   }
 });
+
+app.get("/search/:key", async (req, res) => {
+  const result = await productModel.find({
+    $or: [
+      { name: { $regex: req.params.key } },
+      { category: { $regex: req.params.key } },
+      { company: { $regex: req.params.key } },
+    ],
+  });
+  res.send(result);
+});
 app.listen(4000);
