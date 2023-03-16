@@ -2,6 +2,7 @@
 
 const express = require("express");
 require("./db/config");
+require("dotenv").config();
 const User = require("./db/User");
 const cors = require("cors");
 const productModel = require("./db/Product");
@@ -123,4 +124,6 @@ app.get("/search/:key", verifyToken, async (req, res) => {
 app.all("*", (req, res) => {
   res.send({ result: "invalid path" });
 });
-app.listen(4000);
+app.listen(process.env.PORT || 5000, () =>
+  console.log(`application started on ${process.env.PORT}`)
+);
