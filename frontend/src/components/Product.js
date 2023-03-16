@@ -6,10 +6,13 @@ const Product = () => {
   useEffect(() => {
     getProducts();
   }, []);
-  console.log(products);
+
   const getProducts = async () => {
     let result = await fetch("http://localhost:4000/products", {
       method: "get",
+      headers: {
+        authentication: `bearer ${localStorage.getItem("token")}`,
+      },
     });
     result = await result.json();
     setProducts(result);
@@ -17,6 +20,9 @@ const Product = () => {
   const deleteProduct = async (id) => {
     await fetch(`http://localhost:4000/product/${id}`, {
       method: "delete",
+      headers: {
+        authentication: `bearer ${localStorage.getItem("token")}`,
+      },
     });
     getProducts();
   };
@@ -25,6 +31,9 @@ const Product = () => {
     if (key) {
       let result = await fetch(`http://localhost:4000/search/${key}`, {
         method: "get",
+        headers: {
+          authentication: `bearer ${localStorage.getItem("token")}`,
+        },
       });
       result = await result.json();
       setProducts(result);

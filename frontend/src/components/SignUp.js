@@ -14,21 +14,24 @@ const SignUp = () => {
   });
 
   const collectData = async () => {
-    console.log(name, password, email);
+    if (name && email && password) {
+      let result = await fetch("http://localhost:4000/register", {
+        method: "post",
+        body: JSON.stringify({ name, email, password }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
 
-    let result = await fetch("http://localhost:4000/register", {
-      method: "post",
-      body: JSON.stringify({ name, email, password }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+      result = await result.json();
 
-    result = await result.json();
-
-    if (result) {
-      localStorage.setItem("user", JSON.stringify(result));
-      navigate("/");
+      if (result) {
+        localStorage.setItem("user", JSON.stringify(result.result));
+        localStorage.setItem("token", result.auth);
+        navigate("/");
+      }
+    } else {
+      alert("fields cannot be empty");
     }
   };
 

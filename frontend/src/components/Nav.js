@@ -29,9 +29,6 @@ const Nav = () => {
             <Link to="/add">Add Product</Link>
           </li>
           <li>
-            <Link to="/update/xxx">Update Product</Link>
-          </li>
-          <li>
             <Link to="/login" onClick={logout}>
               logout({JSON.parse(auth).name})
             </Link>
